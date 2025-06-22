@@ -6,6 +6,9 @@ def main():
 
         StocksWithNook = StocksWithNookGUI(StockOneContent)
         StocksWithNook.MainProgram.mainloop()
+        
+
+        # ADADADADADDAD
         # while True:
         #     num1 = input("Enter your first numer (or 'q' to quit): ")
         #     if num1.lower() == 'q':
