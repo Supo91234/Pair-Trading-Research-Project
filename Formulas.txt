@@ -1,0 +1,5 @@
+Spread Category:
+    Range = Largest in Data Set - Smallest in Data Set; The smaller the range the more consistent 
+    Variance = (N - Mean)^2 ... + (N-1 - Mean)^2 / Number of terms 
+    Standard Deviation = sqrt(Variance)
+    IQR (Inter-Quartile Range)
