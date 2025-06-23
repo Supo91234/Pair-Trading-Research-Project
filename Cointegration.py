@@ -2,7 +2,6 @@ import yfinance as yf
 import numpy as np
 import statsmodels.api as sm
 from statsmodels.tsa.stattools import adfuller
-import matplotlib.pyplot as plt
 
 # Download stock data
 start_date = "2023-01-03"
