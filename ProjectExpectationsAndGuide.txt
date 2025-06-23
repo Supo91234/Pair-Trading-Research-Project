@@ -1,0 +1,24 @@
+1. Choose and download at least two stock price values from MarketWatch, Nasdaq or other Internet websites that provide free download
+2. Apply one or more of the Greedy algorithms to compute the mean and the spread as the range, variance, the standard deviation, and/or IQR, on a pair of stock values you downloaded (Each Stock)
+3. Compute the correlation, and if you have time, compute the cointegration, on that pair of stock values
+4. Code using C/C++ or Python to compute the above data
+5. Provide results and conclusion to this work
+
+🔹 1. Background
+Pair trading is a market-neutral strategy that profits from the price divergence and reversion between two historically related stocks. This project focuses on NVIDIA and AMD, two leading GPU manufacturers with strong industry overlap. Their prices are often correlated due to similar exposure to gaming, AI, and semiconductor trends.
+
+This project serves as an early-stage prototype for an application that can guide novice traders on when to buy or short stocks based on pair trading logic. To achieve this, key statistical metrics—mean, variance, standard deviation, IQR, and correlation—are computed to understand the spread between the two stocks.
+
+By applying greedy algorithms and statistical tools, this research builds a foundation for creating real-time trading signals and visual insights based on price relationships.
+
+🔹 2. Hypothesis
+NVIDIA and AMD maintain a historically consistent relationship in their price movements. When the price spread between the two stocks significantly deviates from its statistical norm (e.g., by more than 2 standard deviations), it presents a tradeable opportunity. A simple greedy algorithm can identify these entry points and suggest buy/short actions.
+
+This behavior can be quantified and visualized using measures like mean, standard deviation, and correlation, and potentially enhanced with cointegration analysis.
+
+🔹 3. Conclusion (what you'd write after your analysis)
+The analysis confirms that NVIDIA and AMD exhibit strong price correlation, and their price spread generally reverts to the mean. Greedy algorithms were successfully used to identify local maximum/minimum spread values as potential entry/exit signals.
+
+The calculated mean, standard deviation, and IQR helped determine thresholds for triggering trades, validating the feasibility of a real-time alert system. While correlation was high, future work should include cointegration analysis to better account for long-term equilibrium relationships.
+
+These findings support the development of an educational app that teaches users how to identify high-probability trades using pair-based strategies.
