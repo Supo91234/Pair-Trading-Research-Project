@@ -3,6 +3,9 @@ import os
 import math
 import numpy as np
 
+import statsmodels.api as sm
+from statsmodels.tsa.stattools import adfuller
+
 def is_number(s):
     try:
         float(s)  # Try converting to a float
@@ -27,8 +30,10 @@ def CalculateIQR(ListOfClosingPrices):
     return np.percentile(ListOfClosingPrices, 75) - np.percentile(ListOfClosingPrices, 25)
 
 def main():
+    AMDClosingPrices = []
+    NvidiaClosingPrices = []
+
     with open('StockData/TotalAMDStockData.csv', 'r') as File:
-        AMDClosingPrices = []
         SumOfAMDClosing = 0.0
         
         StockOneContent = File.readlines()
@@ -56,7 +61,6 @@ def main():
         print(f"IQR: ${CalculateIQR(AMDClosingPrices):.2f} \n")
                       
     with open('StockData/TotalNvidiaStockData.csv', 'r') as File:
-        NvidiaClosingPrices = []
         SumOfNvidiaClosing = 0.0
         
         StockTwoContent = File.readlines()
@@ -83,6 +87,22 @@ def main():
         # print(f"Max: ${close.max():.2f}")
         print(f"IQR: ${CalculateIQR(NvidiaClosingPrices):.2f} \n")
 
+    print("-----------------------------------------")
+    print(f"Correlation: {np.corrcoef(AMDClosingPrices, NvidiaClosingPrices)[0, 1]:.4f}")
+    print("-----------------------------------------")
+    # Convert prices to natural logs
+    ln_amd = np.log(AMDClosingPrices)
+    ln_nvidia = np.log(NvidiaClosingPrices)
+
+    # Regress ln(AMD) on ln(NVIDIA)
+    ln_nvidia_const = sm.add_constant(ln_nvidia)
+    model = sm.OLS(ln_amd, ln_nvidia_const).fit()
+    residuals = model.resid
+
+    # ADF test on residuals
+    adf_result = adfuller(residuals)
+    print(f"ADF Statistic: {adf_result[0]}")
+    print(f"p-value: {adf_result[1]}")
 
         # StocksWithNook = StocksWithNookGUI(StockOneContent)
         # StocksWithNook.MainProgram.mainloop()

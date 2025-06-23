@@ -3,3 +3,5 @@ Spread Category:
     Variance = (N - Mean)^2 ... + (N-1 - Mean)^2 / Number of terms 
     Standard Deviation = sqrt(Variance)
     IQR (Inter-Quartile Range)
+
+    correlation = np.corrcoef(amd_prices, nvidia_prices)[0, 1]
