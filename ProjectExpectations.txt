@@ -1,5 +1,0 @@
-1. Choose and download at least two stock price values from MarketWatch, Nasdaq or other Internet websites that provide free download
-2. Apply one or more of the Greedy algorithms to compute the mean and the spread as the range, variance, the standard deviation, and/or IQR, on a pair of stock values you downloaded (Each Stock)
-3. Compute the correlation, and if you have time, compute the cointegration, on that pair of stock values
-4. Code using C/C++ or Python to compute the above data
-5. Provide results and conclusion to this work
